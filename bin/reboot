@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# For this to work without requiring a password (so NodeJS can do this), follow the steps in this URL: http://askubuntu.com/questions/168879/shutdown-from-terminal-without-entering-password
+
+/sbin/reboot

@@ -1,0 +1,120 @@
+extends layout
+
+block content
+  #events.container
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title
+          div
+          i.material-icons settings
+          |  Master Control
+      .panel-body
+        .btn-group.btn-group-justified.btn-group-raised
+          a.btn.btn-lg(onClick="stageKitAPI.masterOff();") Master Off
+
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title
+        div
+        i.material-icons flare
+        | Party Lights
+      .panel-body
+        .btn-group.btn-group-justified.btn-group-raised
+          a.btn.btn-lg(onClick="stageKitAPI.ledsOff();")
+            i.material-icons stop
+
+        .btn-group.btn-group-justified.btn-group-raised
+          a.btn.btn-lg(onClick="stageKitAPI.ledsPartyModeSlow();")
+            i.material-icons play_arrow
+          a.btn.btn-lg(onClick="stageKitAPI.ledsPartyModeMedium();")
+            i.material-icons fast_forward
+          a.btn.btn-lg(onClick="stageKitAPI.ledsPartyModeFast();")
+            i.material-icons fast_forward
+            i.material-icons fast_forward
+
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title
+        div
+          i.material-icons lightbulb_outline
+          | Individual LED Control
+
+      .panel-body
+        .btn-group.btn-group-justified.btn-group-raised
+          a.btn.btn-lg(onClick="stageKitAPI.ledsOff();")
+            i.material-icons stop
+
+        .btn-group.btn-group-justified.btn-group-raised
+          a.btn(onClick="stageKitAPI.setRedLed();" style="background-color: rgb(255,0,0)") Red
+          a.btn(onClick="stageKitAPI.setYellowLed();" style="background-color: rgb(255,255,0)") Yellow
+          a.btn(onClick="stageKitAPI.setGreenLed();" style="background-color: rgb(0,255,0)") Green
+          a.btn(onClick="stageKitAPI.setBlueLed();" style="background-color: rgb(0,0,255)") Blue
+
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title
+         div
+          i.material-icons brightness_high
+          | Strobe Light Control
+
+      .panel-body
+        .btn-group.btn-group-justified.btn-group-raised
+          a.btn.btn-lg(onClick="stageKitAPI.strobeOff();")
+            i.material-icons stop
+
+        .btn-group.btn-group-justified.btn-group-raised
+          a.btn(onClick="stageKitAPI.strobeSlow();")
+            i.material-icons play_arrow
+          a.btn(onClick="stageKitAPI.strobeMedium();")
+            i.material-icons fast_forward
+          a.btn(onClick="stageKitAPI.strobeFast();")
+            i.material-icons fast_forward
+            i.material-icons fast_forward
+          a.btn(onClick="stageKitAPI.strobeRapid();")
+            i.material-icons fast_forward
+            i.material-icons forward
+
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title
+         div
+          i.material-icons wb_cloudy
+          | Fog Control
+      .panel-body
+        .btn-group.btn-group-justified.btn-group-raised
+          a.btn.btn-lg(onClick="stageKitAPI.fogOff();")
+            i.material-icons stop
+
+        .btn-group.btn-group-justified.btn-group-raised
+          a.btn.btn-lg(onClick="stageKitAPI.fogShortBurst();")
+            i.material-icons timer timer_3
+          a.btn.btn-lg(onClick="stageKitAPI.fogLongBurst();")
+            i.material-icons timer timer_10
+
+    .panel.panel-danger
+      .panel-heading
+        h3.panel-title
+          div
+            i.material-icons build
+            | System
+      .panel-body
+        .bs-component
+          a.btn.btn-raised.btn-lg.btn-danger(onClick="confirmAction('stageKitAPI.softResetStageKit', 'Are you sure you want to perform a soft reset?', event)")
+            i.material-icons sync
+            | Soft Reboot
+
+          a.btn.btn-raised.btn-lg.btn-danger(onClick="confirmAction('stageKitAPI.hardResetStageKit', 'Are you sure you want to perform a hard reset?', event)")
+            i.material-icons exit_to_app
+            | Hard Reboot
+
+  #msgBox.modal
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', aria-hidden='true') ×
+          h4.modal-title Confirm Action
+        .modal-body
+          p You're not supposed to see this :-(
+        .modal-footer
+          button.btn.btn-default(type='button') Close
+          button.btn.btn-primary(type='button') Confirm
