@@ -1,5 +1,5 @@
 {
-  "name": "Party Box",
+  "name": "party_box",
   "version": "0.0.1",
   "description": "Web based control of the Rockband Stagekit",
   "main": "app.js",
@@ -34,7 +34,7 @@
     "express",
     "rockband",
     "stage kit",
-    "pary"
+    "party"
   ],
   "author": "David Roth <david.m.roth@gmail.com",
   "license": "GPL-2.0"

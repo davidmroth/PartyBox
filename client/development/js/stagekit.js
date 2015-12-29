@@ -114,7 +114,7 @@ window.onload = (function(exports, $) {
     msgbox.show();
   }
 
-  $('')
+  //$.material.init()
+
 })(window, jQuery);
 
-window['stageKitAPI'] = stageKitAPI;

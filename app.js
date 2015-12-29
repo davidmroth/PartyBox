@@ -20,16 +20,24 @@ var viewSettings = compress.engine(function(err) {
 var views = require('server/config/views')(app, express, viewSettings);
 var routes = require('server/config/routes')(app, stagekit, run_command);
 
-var exitHandler = function() {
-  console.log('Exit called; cleaning up...');
+var exitHandler = function(err) {
   stagekit.close();
+
+  if (err) {
+    console.log('Error: ' + err.code);
+    process.exit(1);
+  }
+
+  console.log('Exiting app...');
   process.exit(0);
 };
 
-process.on('exit', exitHandler);
+// Safely exit...
+process.on('uncaughtException', exitHandler)
 process.on('SIGINT', exitHandler);
 
 app.set('port', port)
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port') + '\n\n')
 });
+
