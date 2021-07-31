@@ -36,3 +36,5 @@ node_modules
 # Autogeneraged during production (not working correctly)
 client/public/css
 client/public/js
+test
+*.so

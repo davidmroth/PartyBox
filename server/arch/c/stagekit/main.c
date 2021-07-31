@@ -24,7 +24,7 @@ int main (int argc, char *argv[])
 
   sk_init(NULL);
 
-  while ((opt = getopt(argc, argv, "orf:s:")) != -1) {
+  while ((opt = getopt(argc, argv, "orlm:f:s:")) != -1) {
 
     switch(opt) {
       case 'o':
@@ -33,6 +33,11 @@ int main (int argc, char *argv[])
 
       case 'r':
         sk_option = 19;
+        break;
+
+      case 'm':
+        i = atoi(optarg);
+        sk_option = i;
         break;
 
       case 'f':
